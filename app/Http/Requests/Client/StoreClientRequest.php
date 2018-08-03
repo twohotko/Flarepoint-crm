@@ -24,6 +24,7 @@ class StoreClientRequest extends FormRequest
     public function rules()
     {
         return [
+            'status' => '',
             'name' => 'required',
             'company_name' => 'required',
             'vat' => 'max:12',
@@ -31,11 +32,12 @@ class StoreClientRequest extends FormRequest
             'address' => '',
             'zipcode' => 'max:6',
             'city' => '',
-            'primary_number' => 'max:10',
-            'secondary_number' => 'max:10',
+            'primary_number' => 'max:11',
+            'secondary_number' => 'max:11',
             'industry_id' => 'required',
             'company_type' => '',
-            'user_id' => 'required'
+            'user_id' => 'required',
+            'expired_at' => 'required',
         ];
     }
 }

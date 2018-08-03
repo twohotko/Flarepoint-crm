@@ -12,23 +12,30 @@ class RolesTablesSeeder extends Seeder
      */
     public function run()
     {
-        
-        $adminRole = new Role;
-        $adminRole->display_name = 'Administrator';
-        $adminRole->name = 'administrator';
-        $adminRole->description = 'System Administrator';
-        $adminRole->save();
+        \DB::table('roles')->delete();
 
-        $editorRole = new Role;
-        $editorRole->display_name = 'Manager';
-        $editorRole->name = 'manager';
-        $editorRole->description = 'System Manager';
-        $editorRole->save();
-
-        $employeeRole = new Role;
-        $employeeRole->display_name = 'Employee';
-        $employeeRole->name = 'employee';
-        $employeeRole->description = 'Employee';
-        $employeeRole->save();
+        \DB::table('roles')->insert(array (
+            0 =>
+                array (
+                    'id' => 1,
+                    'display_name' => 'Administrator',
+                    'name' => 'administrator',
+                    'description' => 'System Administrator',
+                ),
+            1 =>
+                array (
+                    'id' => 2,
+                    'display_name' => 'Manager',
+                    'name' => 'manager',
+                    'description' => 'System Manager',
+                ),
+            2 =>
+                array (
+                    'id' => 3,
+                    'display_name' => 'Employee',
+                    'name' => 'employee',
+                    'description' => 'Employee',
+                ),
+        ));
     }
 }

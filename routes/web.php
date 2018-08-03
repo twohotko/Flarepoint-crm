@@ -18,7 +18,8 @@ Route::group(['middleware' => ['auth']], function () {
      */
         Route::get('/', 'PagesController@dashboard');
         Route::get('dashboard', 'PagesController@dashboard')->name('dashboard');
-        
+        Route::get('home', 'PagesController@dashboard')->name('home');
+
     /**
      * Users
      */

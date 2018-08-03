@@ -8,10 +8,12 @@
     <table class="table table-hover " id="clients-table">
         <thead>
         <tr>
+            <th>{{ __('Status') }}</th>
             <th>{{ __('Name') }}</th>
             <th>{{ __('Company') }}</th>
             <th>{{ __('Mail') }}</th>
             <th>{{ __('Number') }}</th>
+            <th>{{ __('Expired At') }}</th>
             <th></th>
             <th></th>
         </tr>
@@ -29,11 +31,12 @@
 
             ajax: '{!! route('clients.data') !!}',
             columns: [
-
+                {data: 'status', name: 'status'},
                 {data: 'namelink', name: 'name'},
                 {data: 'company_name', name: 'company_name'},
                 {data: 'email', name: 'email'},
                 {data: 'primary_number', name: 'primary_number'},
+                {data: 'expired_at', name: 'expired_at'},
                 @if(Entrust::can('client-update'))   
                 { data: 'edit', name: 'edit', orderable: false, searchable: false},
                 @endif

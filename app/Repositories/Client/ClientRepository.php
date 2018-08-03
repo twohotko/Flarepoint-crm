@@ -2,6 +2,7 @@
 namespace App\Repositories\Client;
 
 use App\Models\Client;
+use App\Models\Enums\ClientStatus;
 use App\Models\Industry;
 use App\Models\Invoice;
 use App\Models\User;
@@ -51,6 +52,8 @@ class ClientRepository implements ClientRepositoryContract
         return Client::count();
     }
 
+    //todo client status & client expired at, getExpiredClient, getExpiredClientCount, Cronjob to check expired then list in task or notification
+
     /**
      * @return mixed
      */
@@ -64,6 +67,7 @@ class ClientRepository implements ClientRepositoryContract
      */
     public function create($requestData)
     {
+        $requestData['status'] = ClientStatus::QUEUEING;
         $client = Client::create($requestData);
         Session()->flash('flash_message', 'Client successfully added');
         event(new \App\Events\ClientAction($client, self::CREATED));

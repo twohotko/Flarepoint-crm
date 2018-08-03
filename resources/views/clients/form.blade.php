@@ -9,15 +9,6 @@
 
 <div class="form-inline">
     <div class="form-group col-sm-6 removeleft">
-        {!! Form::label('vat', 'Vat:', ['class' => 'control-label']) !!}
-        {!! 
-            Form::text('vat',
-            isset($data['vat']) ?$data['vat'] : null,
-            ['class' => 'form-control']) 
-        !!}
-    </div>
-
-    <div class="form-group col-sm-6 removeleft removeright">
         {!! Form::label('company_name', 'Company name:', ['class' => 'control-label']) !!}
         {!! 
             Form::text('company_name',
@@ -25,15 +16,15 @@
             ['class' => 'form-control']) 
         !!}
     </div>
-</div>
 
-<div class="form-group">
-    {!! Form::label('email', 'Email:', ['class' => 'control-label']) !!}
-    {!! 
-        Form::email('email',
-        isset($data['email']) ? $data['email'] : null, 
-        ['class' => 'form-control']) 
-    !!}
+    <div class="form-group col-sm-6 removeleft">
+        {!! Form::label('email', 'Email:', ['class' => 'control-label']) !!}
+        {!!
+            Form::email('email',
+            isset($data['email']) ? $data['email'] : null,
+            ['class' => 'form-control'])
+        !!}
+    </div>
 </div>
 
 <div class="form-group">
@@ -84,8 +75,8 @@
         !!}
     </div>
 </div>
-<div class="form-group">
 
+<div class="form-group">
     {!! Form::label('company_type', 'Company type:', ['class' => 'control-label']) !!}
     {!!
         Form::text('company_type',
@@ -93,6 +84,7 @@
         ['class' => 'form-control'])
     !!}
 </div>
+
 <div class="form-group">
     {!! Form::label('industry', 'Industry:', ['class' => 'control-label']) !!}
     {!!
@@ -104,12 +96,18 @@
     !!}
 </div>
 
-
 <div class="form-group">
     {!! Form::label('user_id', 'Assign user:', ['class' => 'control-label']) !!}
     {!! Form::select('user_id', $users, null, ['class' => 'form-control ui search selection top right pointing search-select', 'id' => 'search-select']) !!}
-
 </div>
 
+<div class="form-group">
+    {!! Form::label('expired_at', 'Client Package Until:', ['class' => 'control-label']) !!}
+    {!!
+        Form::date('expired_at',
+        isset($client->expired_at) ? new DateTime($client->expired_at) : new DateTime(),
+        ['class' => 'form-control'])
+     !!}
+</div>
 
 {!! Form::submit($submitButtonText, ['class' => 'btn btn-primary']) !!}

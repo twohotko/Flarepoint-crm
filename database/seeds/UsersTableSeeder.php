@@ -12,8 +12,6 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        
-
         \DB::table('users')->delete();
         
         \DB::table('users')->insert(array (
@@ -21,8 +19,8 @@ class UsersTableSeeder extends Seeder
             array (
                 'id' => 1,
                 'name' => 'Admin',
-                'email' => 'admin@admin.com',
-                'password' => bcrypt('admin123'),
+                'email' => 'support@alpstein.my',
+                'password' => bcrypt('@lpstein$1234'),
                 'address' => '',
                 'work_number' => 0,
                 'personal_number' => 0,

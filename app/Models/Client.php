@@ -5,7 +5,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Client extends Model
 {
-
     protected $fillable = [
         'name',
         'company_name',
@@ -18,7 +17,9 @@ class Client extends Model
         'secondary_number',
         'industry_id',
         'company_type',
-        'user_id'];
+        'user_id',
+        'expired_at',
+    ];
 
     public function user()
     {

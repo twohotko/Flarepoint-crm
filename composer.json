@@ -1,6 +1,6 @@
 {
     "name": "bottelet/flarepoint",
-    "description": "Flarepoint is a free, open-source and self-hosted CRM platform based of Laravel 5",
+    "description": "Alpstein CRM",
     "keywords": [
         "laravel",
         "CRM",
@@ -10,8 +10,8 @@
     ],
     "authors": [
         {
-            "name": "Casper Bottelet",
-            "email": "cbottelet@gmail.com"
+            "name": "Alpstein Solution",
+            "email": "support@alpstein.my"
         }
     ],
     "license": "MIT",

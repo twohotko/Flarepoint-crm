@@ -12,81 +12,104 @@ class PermissionsTableSeeder extends Seeder
      */
     public function run()
     {
+        \DB::table('permissions')->delete();
+
         /**
          * User Permissions
          */
-        
-        $createUser = new Permissions;
-        $createUser->display_name = 'Create user';
-        $createUser->name = 'user-create';
-        $createUser->description = 'Permission to create user';
-        $createUser->save();
 
-        $updateUser = new Permissions;
-        $updateUser->display_name = 'Update user';
-        $updateUser->name = 'user-update';
-        $updateUser->description = 'Permission to update user';
-        $updateUser->save();
-
-        $deleteUser = new Permissions;
-        $deleteUser->display_name = 'Delete user';
-        $deleteUser->name = 'user-delete';
-        $deleteUser->description = 'Permission to update delete';
-        $deleteUser->save();
-
+        \DB::table('permissions')->insert(array (
+            0 =>
+                array (
+                    'id' => 1,
+                    'display_name' => 'Create user',
+                    'name' => 'user-create',
+                    'description' => 'Permission to create user',
+                ),
+            1 =>
+                array (
+                    'id' => 2,
+                    'display_name' => 'Update user',
+                    'name' => 'user-update',
+                    'description' => 'Permission to update user',
+                ),
+            2 =>
+                array (
+                    'id' => 3,
+                    'display_name' => 'Delete user',
+                    'name' => 'user-delete',
+                    'description' => 'Permission to delete user',
+                ),
+        ));
 
          /**
          * Client Permissions
          */
-        
-        $createClient = new Permissions;
-        $createClient->display_name = 'Create client';
-        $createClient->name = 'client-create';
-        $createClient->description = 'Permission to create client';
-        $createClient->save();
 
-        $updateClient = new Permissions;
-        $updateClient->display_name = 'Update client';
-        $updateClient->name = 'client-update';
-        $updateClient->description = 'Permission to update client';
-        $updateClient->save();
-
-        $deleteClient = new Permissions;
-        $deleteClient->display_name = 'Delete client';
-        $deleteClient->name = 'client-delete';
-        $deleteClient->description = 'Permission to delete client';
-        $deleteClient->save();
+        \DB::table('permissions')->insert(array (
+            0 =>
+                array (
+                    'id' => 4,
+                    'display_name' => 'Create client',
+                    'name' => 'client-create',
+                    'description' => 'Permission to create client',
+                ),
+            1 =>
+                array (
+                    'id' => 5,
+                    'display_name' => 'Update client',
+                    'name' => 'client-update',
+                    'description' => 'Permission to update client',
+                ),
+            2 =>
+                array (
+                    'id' => 6,
+                    'display_name' => 'Delete client',
+                    'name' => 'client-delete',
+                    'description' => 'Permission to delete client',
+                ),
+        ));
 
          /**
          * Tasks Permissions
          */
-        
-        $createTask = new Permissions;
-        $createTask->display_name = 'Create task';
-        $createTask->name = 'task-create';
-        $createTask->description = 'Permission to create task';
-        $createTask->save();
 
-        $updateTask = new Permissions;
-        $updateTask->display_name = 'Update task';
-        $updateTask->name = 'task-update';
-        $updateTask->description = 'Permission to update task';
-        $updateTask->save();
+        \DB::table('permissions')->insert(array (
+            0 =>
+                array (
+                    'id' => 7,
+                    'display_name' => 'Create task',
+                    'name' => 'task-create',
+                    'description' => 'Permission to create task',
+                ),
+            1 =>
+                array (
+                    'id' => 8,
+                    'display_name' => 'Update task',
+                    'name' => 'task-update',
+                    'description' => 'Permission to update task',
+                )
+        ));
 
          /**
          * Leads Permissions
          */
-        
-        $createLead = new Permissions;
-        $createLead->display_name = 'Create lead';
-        $createLead->name = 'lead-create';
-        $createLead->description = 'Permission to create lead';
-        $createLead->save();
 
-        $updateLead = new Permissions;
-        $updateLead->display_name = 'Update lead';
-        $updateLead->name = 'lead-update';
-        $updateLead->description = 'Permission to update lead';
-        $updateLead->save();
+        \DB::table('permissions')->insert(array (
+            0 =>
+                array (
+                    'id' => 9,
+                    'display_name' => 'Create lead',
+                    'name' => 'lead-create',
+                    'description' => 'Permission to create lead',
+                ),
+            1 =>
+                array (
+                    'id' => 10,
+                    'display_name' => 'Update lead',
+                    'name' => 'lead-update',
+                    'description' => 'Permission to update lead',
+                )
+        ));
     }
 }

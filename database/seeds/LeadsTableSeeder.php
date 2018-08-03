@@ -12,9 +12,7 @@ class LeadsTableSeeder extends Seeder
      */
     public function run()
     {
-        
-
-        
+        \DB::table('leads')->delete();
         
         \DB::table('leads')->insert(array (
             0 =>

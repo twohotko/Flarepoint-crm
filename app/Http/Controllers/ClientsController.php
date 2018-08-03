@@ -47,7 +47,7 @@ class ClientsController extends Controller
      */
     public function anyData()
     {
-        $clients = Client::select(['id', 'name', 'company_name', 'email', 'primary_number']);
+        $clients = Client::select(['id', 'status', 'name', 'company_name', 'email', 'primary_number', 'expired_at']);
         return Datatables::of($clients)
             ->addColumn('namelink', function ($clients) {
                 return '<a href="clients/' . $clients->id . '" ">' . $clients->name . '</a>';
