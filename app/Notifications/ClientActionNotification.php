@@ -74,6 +74,12 @@ class ClientActionNotification extends Notification
                     'username' => Auth()->user()->name
                 ]);
                 break;
+            case 'expired':
+                $text = __('Client :company is expired today and was assigned to you for follow up', [
+                    'company' => $this->client->company_name,
+                    'username' => Auth()->user()->name
+                ]);
+                break;
             default:
                 break;
         }

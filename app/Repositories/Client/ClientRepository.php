@@ -1,11 +1,13 @@
 <?php
 namespace App\Repositories\Client;
 
+use App\Events\ClientAction;
 use App\Models\Client;
 use App\Models\Enums\ClientStatus;
 use App\Models\Industry;
 use App\Models\Invoice;
 use App\Models\User;
+use Carbon\Carbon;
 use DB;
 /**
  * Class ClientRepository
@@ -15,6 +17,7 @@ class ClientRepository implements ClientRepositoryContract
 {
     const CREATED = 'created';
     const UPDATED_ASSIGN = 'updated_assign';
+    const EXPIRED = 'expired';
 
     /**
      * @param $id
@@ -53,7 +56,6 @@ class ClientRepository implements ClientRepositoryContract
     }
 
     //todo client status & client expired at, getExpiredClient, getExpiredClientCount, Cronjob to check expired then list in task or notification
-
     /**
      * @return mixed
      */
@@ -67,8 +69,9 @@ class ClientRepository implements ClientRepositoryContract
      */
     public function create($requestData)
     {
-        $requestData['status'] = ClientStatus::QUEUEING;
         $client = Client::create($requestData);
+        $client->status = ClientStatus::ACTIVE;
+        $client->save();
         Session()->flash('flash_message', 'Client successfully added');
         event(new \App\Events\ClientAction($client, self::CREATED));
     }

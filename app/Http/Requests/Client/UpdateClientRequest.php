@@ -24,6 +24,7 @@ class UpdateClientRequest extends FormRequest
     public function rules()
     {
         return [
+            'status' => '',
             'name' => 'required',
             'company_name' => 'required',
             'vat' => 'max:12',

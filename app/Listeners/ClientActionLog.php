@@ -43,6 +43,12 @@ class ClientActionLog
                     'assignee' => $client->AssignedUser->name,
                 ]);
                 break;
+            case 'expired':
+                $text = __('Client :company is expired today and was assigned to :assignee for follow up', [
+                    'company' => $client->company_name,
+                    'username' => $client->AssignedUser->name,
+                ]);
+                break;
             default:
                 break;
         }
